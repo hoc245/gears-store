@@ -1,0 +1,8 @@
+<svg id="pending-icon" xmlns="http://www.w3.org/2000/svg" width="54.618" height="54.618" viewBox="0 0 54.618 54.618">
+  <g id="Group_720" data-name="Group 720">
+    <path id="Path_2122" data-name="Path 2122" d="M29.309,2A27.309,27.309,0,1,0,56.618,29.309,27.319,27.319,0,0,0,29.309,2Zm0,49.156A21.847,21.847,0,1,1,51.156,29.309,21.841,21.841,0,0,1,29.309,51.156Z" transform="translate(-2 -2)" fill="#707070"/>
+    <circle id="Ellipse_85" data-name="Ellipse 85" cx="4.096" cy="4.096" r="4.096" transform="translate(9.558 23.213)" fill="#707070"/>
+    <circle id="Ellipse_86" data-name="Ellipse 86" cx="4.096" cy="4.096" r="4.096" transform="translate(23.213 23.213)" fill="#707070"/>
+    <circle id="Ellipse_87" data-name="Ellipse 87" cx="4.096" cy="4.096" r="4.096" transform="translate(36.867 23.213)" fill="#707070"/>
+  </g>
+</svg>
