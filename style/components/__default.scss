@@ -1,0 +1,62 @@
+// ****************** RESET STYLE ******************
+*,::before,::after {
+    margin:0px;
+    padding:0px;
+    border:none;
+    outline:none;
+    list-style-type: none;
+    appearance: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    color:inherit;
+    fill: currentColor;
+}
+img {
+    display:block;
+}
+// ****************** PREVENT ITEM FLOW Horizontal ******************
+body {
+    overflow-x: hidden;
+}
+// ****************** BACKGROUND FOR IMAGE NONE SOURCE ******************
+img[src=""]{
+    background-color: rgb(150, 150, 150);
+}
+// ****************** STYLE SCROLL BAR ******************
+    /* width */
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+        /* Track */
+    ::-webkit-scrollbar-track {
+        background:var(--very-light-gray);
+    }
+        /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 2px;
+    } 
+        /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--blue);
+    }
+// ****************** COLOR THEME ******************
+:root {
+    --very-light-gray : #EDF2F8;
+    --light-gray : #D8E2EE;
+    --black : #181719;
+    --dark-gray : #6B7688;
+    --gray : #ADBACB;
+    --blue : #30368E;
+    --brown : #46364A;
+}
+// ****************** ICON SIZE ******************
+:root {
+    --logo-icon : 30px;
+    --nav-icon : 30px;
+    --hambuger-icon: 30px;
+    --button-icon : 24px;
+    --section-icon : 24px;
+    --skill-icon : 40px;
+    --contact-icon : 24px;
+}

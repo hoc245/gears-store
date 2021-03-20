@@ -1,0 +1,71 @@
+// Define font family
+* {
+    font-family : "Poppins",sans-serif;
+}
+// Define font size responsive
+:root {
+    --f-header-item : 14px;
+    --f-nav-item : 14px;
+    --f-section-h1 : 35px;
+    --f-section-h2 : 20px;
+    --f-section-h3: 20px;
+    --f-section-h4 : 16px;
+    --f-section-h5 : 14px;
+    --f-section-menu : 16px;
+    --f-section-des : 12px;
+    --f-products-h1 : 25px;
+    --f-products-item: 16px;
+    --f-products-prices : 14px;
+    --f-button : 14px;
+    --f-banner-h1 : 50px;
+    --f-banner-h2 : 30px;
+    --f-form: 12px;
+    --f-footer-item : 12px;
+}
+// Define icon size
+:root {
+    --i-header-item : 24px;
+    --i-logo : 40px;
+    --i-button : 24px;
+    --i-footer-item-h : 25px;
+    --i-footer-contact : 24px;
+    --i-back : 24px;
+    --i-next : 24px;
+    --i-pre : 24px;
+    --i-add-to-cart : 20px;
+    --i-complete-w : 50px;
+    --i-pending : 85px;
+}
+@media only screen and (max-width: 768px) {
+    :root {
+        --f-header-item : 12px;
+        --f-section-h1 : 25px;
+        --f-section-h2 : 16px;
+        --f-section-h3: 14px;
+        --f-section-menu : 14px;
+        --f-products-h1 : 20px;
+        --f-banner-h1 : 30px;
+        --f-banner-h2 : 20px;
+        --f-form: 12px;
+        --f-footer-item : 12px;
+    }
+    :root {
+        --i-header-item : 20px;
+        --i-footer-contact : 20px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    :root {
+        --f-section-h1 : 20px;
+        --f-section-h1 : 20px;
+        --f-products-h1 : 16px;
+        --f-section-menu : 12px;
+        --f-banner-h1 : 25px;
+        --f-banner-h2 : 16px;
+    }
+    :root {
+        --i-logo : 30px;
+        --i-complete-w : 32px;
+        --i-pending : 55px;
+    }
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "products": "Gaming Mouse",
+    "item": {
+      "mainItem": [
+        "01.01",
+        "02.01",
+        "03.01",
+        "04.01",
+        "05.01",
+        "06.01"
+      ],
+      "name": [
+        "RazerViper Utimate",
+        "RGBHyperXPulsefire Surge",
+        "SteelSeriesRival 600",
+        "LogitechG502 Hero High Performance",
+        "HyperX Pulsefire Haste",
+        "MSIClutch GM10"
+      ],
+      "prices": [
+        150,
+        180,
+        120,
+        100,
+        145,
+        175
+      ],
+      "description": [
+        "No. 1 best-selling gaming peripherals manufacturer in the US: Source - NPD Group, Inc., US Retail Tracking Service, Game Designed: Keyboard, Mouse, PC Headset and PC Microphone, Based on Dollar Sales, Jan 2017- June 2020 combined.<br>The Lightest, Zero-Compromise Wireless Esports Gaming Mouse at 74g: The Razer Viper Ultimate includes a 20K DPI optical sensor befitting the most serious gamers without the need for drilled holes.<br>Faster than Traditional Mechanical Switch: The new Razer Optical Mouse Switch uses beam-based actuation, registering button presses at the speed of light.",
+        "The light ring provides a dynamic 360 degree RGB effect.<br>Pixart 3389 sensor with native DPI up to 16,000.<br>The reliable Omron switch is rated for 50 million clicks.<br>Customize easily with HyperX Ngenuity software.<br>Integrated memory to store customizations.<br>Large skates for easy gliding.",
+        "The exclusive 1 to 1 optical 3-12,000 cpi, 350 ips optical 1-to-1 optical sports sensor tracks.<br>The trigger separates the mechanical switch by 60 million clicks.<br>Revolutionary silicon side clamp for increased grip and durability.<br>Premium magnetic wrist rest - Provides full palm support and comfort.",
+        "Hero 25K sensor via software update from G HUB, this upgrade is free for all players: Our most advanced, with 1: 1 tracking, 400+ ips and maximum dpi sensitivity 100 - 25,600 with no smoothing, filtering or acceleration.<br>11 customizable buttons and built-in memory: Assign custom commands to buttons and save up to five ready-to-play profiles directly to the mouse.<br>Adjustable weight system: Arrange up to five removable 3.6-gram weights inside the mouse for personalized balance and weight adjustments.",
+        "Ultra-light hexagonal case design: Honeycomb housings provide feather-light weight without compromising on durability.<br>HyperFlex USB cable: Lightweight, flexible paracord material reduces tension and drag for easier mouse movement.<br>TTC Golden Micro Dustproof Switches: These switches provide solid, quiet click sound and are rated for 60 million clicks.",
+        "Ergonomic design asymmetric.<br>High quality gaming switch lasting over 10 million clicks.<br>Quick DPI adjustment.<br>Light wheel with 4-level LED backlight.<br>Integrated anti-slip side handle."
+      ],
+      "subItem": "01.01,01.02,02.01,02.02,02.03,02.04,03.01,03.02,0.3.03,03.04,04.01,04.02,04.03,05.01,05.02,05.03,05.04,06.02,06.03,06.04"
+    }
+  },
+  {
+    "products": "Headphone",
+    "item": {
+      "mainItem": [
+        "01.01",
+        "02.01",
+        "03.01",
+        "04.01",
+        "05.01",
+        "06.01"
+      ],
+      "name": [
+        "Sony MDR-100AAPBCE",
+        "Gaming Logitech G4317.1 ",
+        "ROCKPAPA Circle ONE",
+        "Rockpapa 950",
+        "RockPapa Over EarStereo Foldabe",
+        "Mpow CH6S"
+      ],
+      "prices": [
+        175,
+        160,
+        130,
+        120,
+        120,
+        150
+      ],
+      "description": [
+        "Beautiful and stylish design, suitable for young people.<br>Titanium-coated diaphragm for realistic sound.<br>Hi-res Audio sound quality.<br>Control tracks, answer calls quickly and conveniently.",
+        "The headset is designed for the gaming enthusiast.<br>Premium leatherette strap and ear cups feel comfortable to use, ear cups can be rotated 90 degrees.<br>50mm drivers for loud, vibrant sound.\n6mm mic ensures full, clear sound is transmitted.",
+        "FOLDED DESIGN: Easy to carry and Space Saving, Just Fold Up, Twisted, Bring on Your Trip.<br>VOLUME CONTROL and WITHOUT HAND: It has built-in Microphone, Remote control and volume, perfect for answering phone calls or listening to music.<br>QUALITY PARTS: 1.5-Meter Nylon Cord and 3.5mm L-Shape Jack, Powerful Audio Performance with Deep Bass Response.",
+        "Adjustable and foldable: Lightweight design for children 5 years of age and older, the headband easily adjusts to ensure a perfect fit, foldable easily to save space and carry on the go your go.<br>Comfort: Gentle on your ears with ultra-eco skin and cloudy foam cushions, keeping you comfortable all day long with this headset.",
+        "Colors: Headphones have a color gradient enough to capture people's gazes and make them stand out in the classroom or the crowd.<br>Adjustable and foldable: Lightweight design for children ages 8 and up, The headband easily adjusts to ensure a perfect fit, Foldable easily to save space and carry on the go your go.<br>Comfort: Gentle on your ears with ultra-eco skin and cloudy foam cushions, keeping you comfortable all day long with this headset.",
+        "Built-in Microphone, Hi-fi Stereo: Baby headphones with microphone convenient for children's learning and online communication at home; Stereo kids headphones with great sound effects, are the best partner for your kids to study, listen to music, watch movies, play games, talk with friends and have fun, no matter at home , at school or traveling (NOTE: Built-in microphone does NOT work on desktops)"
+      ],
+      "subItem": "01.01,01.01.B,01.02,01.02.B,01.03,01.03.B,02.01,02.01.B,02.02,02.02.B,02.03,02.03.B,03.01,03.01.B,03.02.B,03.03,03.03.B,04.01,04.01.B,04.01.C,04.02,04.02.B,04.02.C,04.03,04.03.B,04.03.C,01.01,05.01.B,05.01.C,05.02,05.02.B,05.02.C,05.03,05.03.B,05.03.C,06.01,06.01.B,06.01.C,06.01.D,06.02,06.02.B,06.02.C,06.02.D"
+    }
+  },
+  {
+    "products": "Wireless Headphone",
+    "item": {
+      "mainItem": [
+        "01.01",
+        "02.01",
+        "03.01",
+        "04.01",
+        "05.01",
+        "06.01"
+      ],
+      "name": [
+        "Beats Studio3Wireless MX422/ MX432",
+        "Bluetooth SonyWH-1000XM4",
+        "Sony MDRXB950B1RCE",
+        "Bluetooth JBL E55BT",
+        "Mokata Volume Limited85dB",
+        "Bluetooth Alitoo"
+      ],
+      "prices": [
+        330,
+        380,
+        150,
+        200,
+        110,
+        120
+      ],
+      "description": [
+        "Compact, delicate design, soft ear cushions for comfortable wearing.<br>Connect wirelessly up to 10m away with Bluetooth 4.0.<br>High quality sound is handled by the Apple W1 chip.<br>Equipped with Pure ANC (Pure Active Noise Canceling) technology.",
+        "Smart folding design, dynamic style.<br>Excellent sound quality with 40 mm drivers combined with a liquid crystal Polymer (LCD) screen.<br>Automatically stop playing music when you chat and play music again when you stop talking.<br>Automatically adjusts sound to suit your actions, for a great experience.",
+        "Beautiful and stylish design, suitable for young people.<br>Titanium-coated diaphragm for realistic sound.<br>Stable sound quality.",
+        "Over-ear Bluetooth headphones with a youthful design.<br>Use 50mm drivers for detailed sound, powerful bass.<br>Control your music right on the convenient ear-cup.<br>Using Bluetooth V4.0 (GFSK pi / 4, DQPSK, 8-DPSK) technology to wirelessly connect to the device within 10m range.",
+        "CHOOSE IDEAL GIFTS FOR KIDS: Products designed for children from 3 years old. Made of durable, high-quality materials, this headset is built to endure and withstand rough children's play.<br>85dB.max SAFE & VOLUME CONTROLLED: This small baby headset is set at 85dB.max, well preventing your child's hearing from damaging and reducing the risk of permanent hearing damage. Remember to remind your child to remove the headphones every 1-2 hours to relax their ears.",
+        "Superior Hi-Fi stereo: Over-ear headphones deliver impressive Hi-Fi stereo quality and clear communication. The memory protein pads effectively reduce noise and improve the hearing loss experience, allowing you to enjoy your music without disturbing it.<br>Comfortable, Foldable, Stretchable, the bluetooth wireless headset is made of durable, lightweight ABS material, with soft ear cushions, providing lasting comfort. The headband can be folded to save your storage or shipping space and can be expanded to suit everyone."
+      ],
+      "subItem": "01.01,01.01.B,01.02,01.02.B,01.03,01.03.B,01.04,01.04.B,02.01,02.01.B,02.02,02.02.B,02.03,02.03.B,02.04,02.04.B,03.01,03.01.B,03.01.C,03.02,03.02.B,03.02.C,03.03,03.03.B,03.03.C,04.01,04.01.B,04.01.C,04.02,04.02.B,04.02.C,04.03,04.03.B,04.03.C,05.01,05.01.C,05.02,05.02.C,06.01,06.01.B,06.02,06.02.B"
+    }
+  },
+  {
+    "products": "Wireless Mouse",
+    "item": {
+      "mainItem": [
+        "01.01",
+        "02.01",
+        "03.01",
+        "04.01",
+        "05.01",
+        "06.01"
+      ],
+      "name": [
+        "ROCCATKain 200 AIMO RGB",
+        "E-BlueMazer II 2500 DPI Wireless",
+        "LogitechG PRO X Superlight Wireless",
+        "HyperXPulsefire Dart - Wireless RGB",
+        "M690-12400 DPI",
+        "M9132.4G Wireless"
+      ],
+      "prices": [
+        200,
+        220,
+        250,
+        180,
+        175,
+        280
+      ],
+      "description": [
+        "Titanium buttons are hinged and feature low-load springs that cushion every click. This delivers exceptional precision with each press.<br>Wheel improvements - one click with the mouse wheel is as solid as a normal click with the Titan 2.0 wheel; Its innovative design provides defined and responsive scrolling steps.",
+        "Upgraded design with LED Illuminated Rubber Roll Wheels.<br>Ergonomically designed for Right-handed Players using the 'Air wing' Concept.<br>Adjustable DPI Switch (Dots Per Inch) 500/1200/1800/2500.<br>Avago 5090 high-performance optical gaming chip set.",
+        "Meticulously designed in collaboration with many of the world's leading esports experts. Designed to win is the culmination of our continued pursuit to achieve the highest levels of performance.<br>Ultra light under 63 grams, with a super minimal redesign that reduces weight by nearly 25% compared to standard PRO wireless mice.",
+        "Game-grade wireless technology.\nLong battery life (up to 50 hours).<br>Compatibility with Qi wireless charging.<br>Battery life: 90 hours - LED off.<br>Pixart 3389 high-end sensor.<br>Ergonomic design with padded leatherette handle.",
+        "Number of rollers: 2 Total weight: 200g Interface type: Manual USB: Suitable power type: Battery.<br>Number of buttons: 8 Type: 2.4Ghz wireless package: Yes Style: Finger operation mode: Laser.<br>Time of release: Jun-18 Model Number: Redragon M690-1 DPI: 2400 Item code: 55-100-009 Application: For Video Games, Desktop, Creative, Laptop hand.",
+        "Wireless / Wired, 2 Usage - 2.4Ghz wireless dual mode and USB-C wired mode combined with 12 side buttons MMO gaming mouse feature. Wireless / wired mode plus easy-to-access key-link shortcuts will maximize your damage.<br>Wireless / Wired, 2 Usage - Dual 2.4Ghz wireless mode and USB-C wired mode combined with 12 side buttons MMO gaming feature. Wireless / wired mode plus Easy Access link shortcuts will maximize your damage."
+      ],
+      "subItem": "01.01,01.02,01.03,01.04,02.01,02.02,02.03,02.04,03.01,03.02,03.03,04.01,04.02,04.03,04.04,05.01,05.02,05.02,05.03,05.04,06.01,06.02,06.03,06.04"
+    }
+  }
+]

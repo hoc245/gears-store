@@ -1,0 +1,32 @@
+.btn {
+    background-color: transparent;
+    border: 1px solid var(--gray);
+    border-radius: 2px;
+    transition: all 200ms ease;
+    &+.btn {
+        margin-left: 20px;
+    }
+    &.active {
+        border-color: var(--purple);
+        background-color: var(--purple);
+        & span a {
+            color: var(--white);
+        }
+    }
+    &:hover {
+        border-color: var(--purple);
+        background-color: var(--purple);
+        & span a{
+            color: var(--white);
+        }
+    }
+    span {
+        a {
+            display:block;
+            padding: 7px 24px;
+            font-size: var(--f-button);
+            color: var(--gray);
+            font-weight: 400;
+        }
+    }
+}
