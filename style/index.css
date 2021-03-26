@@ -773,7 +773,7 @@ main section .section-wrapper {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-image: url("../../assets/icon/Hero-pattern.svg");
+  background-image: url("../assets/icon/Hero-pattern.svg");
   background-repeat: no-repeat;
   background-position: left bottom;
   pointer-events: none;
@@ -967,7 +967,7 @@ main section .section-wrapper {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assets/icon/offer-pattern.svg");
+  background-image: url("../assets/icon/offer-pattern.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1317,7 +1317,7 @@ main section .section-wrapper {
   right: 0;
   bottom: 0;
   display: block;
-  background-image: url("../../assets/icon/product-pattern.svg");
+  background-image: url("../assets/icon/product-pattern.svg");
   background-repeat: no-repeat;
   background-position: center center;
   mix-blend-mode: overlay;
