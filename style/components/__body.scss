@@ -441,10 +441,16 @@ main {
                 border-color: var(--gray);
                 & span a {
                     color: var(--gray);
+                    & span {
+                        position: relative;
+                        padding-right: 25px;
+                    }
                 }
                 & span img {
-                    display: inline-block;
-                    vertical-align: middle;
+                    position: absolute;
+                    right: 0;
+                    top:50%;
+                    transform: translateY(-50%);
                 }
             }
             .products-item-image {

@@ -1220,9 +1220,17 @@ main section .section-wrapper {
   color: var(--gray);
 }
 
+#products .section-wrapper .products-item .btn.active span a span {
+  position: relative;
+  padding-right: 25px;
+}
+
 #products .section-wrapper .products-item .btn.active span img {
-  display: inline-block;
-  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 #products .section-wrapper .products-item .products-item-image {
