@@ -1,0 +1,13 @@
+<svg id="badge-ticked" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="74" viewBox="0 0 49 74">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6c3298"/>
+      <stop offset="1" stop-color="#d153a3"/>
+    </linearGradient>
+  </defs>
+  <path id="Rectangle_643" data-name="Rectangle 643" d="M0,0H49a0,0,0,0,1,0,0V49.5A24.5,24.5,0,0,1,24.5,74h0A24.5,24.5,0,0,1,0,49.5V0A0,0,0,0,1,0,0Z" fill="url(#linear-gradient)"/>
+  <g id="Icon_Favorite_Outlined" data-name="Icon / Favorite / Outlined" transform="translate(13 25)">
+    <rect id="Box" width="24" height="24" fill="none"/>
+    <path id="Union_10" data-name="Union 10" d="M5197.6-4503c-5.2-4.6-8.6-7.7-8.6-11.5a5.422,5.422,0,0,1,5.5-5.5,6.012,6.012,0,0,1,4.5,2.1,6.007,6.007,0,0,1,4.5-2.1,5.484,5.484,0,0,1,5.5,5.5c0,3.7-3.4,6.8-8.6,11.5l-1.4,1.3Z" transform="translate(-5187 4523.3)" fill="#fff"/>
+  </g>
+</svg>

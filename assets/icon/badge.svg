@@ -1,0 +1,13 @@
+<svg id="badge" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="74" viewBox="0 0 49 74">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6c3298"/>
+      <stop offset="1" stop-color="#d153a3"/>
+    </linearGradient>
+  </defs>
+  <path id="Rectangle_643" data-name="Rectangle 643" d="M0,0H49a0,0,0,0,1,0,0V49.5A24.5,24.5,0,0,1,24.5,74h0A24.5,24.5,0,0,1,0,49.5V0A0,0,0,0,1,0,0Z" fill="url(#linear-gradient)"/>
+  <g id="Icon_Favorite_Outlined" data-name="Icon / Favorite / Outlined" transform="translate(13 25)">
+    <rect id="Box" width="24" height="24" fill="none"/>
+    <path id="Path_2085" data-name="Path 2085" d="M155.1,17.9l-.1.1-.1-.1c-4.8-4.3-7.9-7.2-7.9-10.1a3.418,3.418,0,0,1,3.5-3.5,4.062,4.062,0,0,1,3.6,2.4H156a3.847,3.847,0,0,1,3.6-2.4,3.418,3.418,0,0,1,3.5,3.5C163,10.7,159.9,13.6,155.1,17.9Zm4.4-15.6A6.01,6.01,0,0,0,155,4.4a6.01,6.01,0,0,0-4.5-2.1A5.422,5.422,0,0,0,145,7.8c0,3.8,3.4,6.9,8.6,11.5l1.4,1.3,1.4-1.3c5.2-4.7,8.6-7.8,8.6-11.5A5.484,5.484,0,0,0,159.5,2.3Z" transform="translate(-143 1)" fill="#fff"/>
+  </g>
+</svg>
