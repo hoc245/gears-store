@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gear Store :: Mouse :: Headphone</title>
     <!-- Style -->
-    <link rel="stylesheet" href="../style/products.css">
+    <link rel="stylesheet" href="../style/detail.css">
     <!-- End -->
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -49,8 +49,8 @@
                 <div id="nav-bar">
                     <ul id="nav-bar-menu">
                         <li class="nav-bar-item"><a href="../index.html">NEW ARRIVAL</a></li>
-                        <li class="nav-bar-item active"><a href="#best-offers">BEST OFFERS</a></li>
-                        <li class="nav-bar-item"><a href="#products">PRODUCTS</a></li>
+                        <li class="nav-bar-item"><a href="../index.html#best-offers">BEST OFFERS</a></li>
+                        <li class="nav-bar-item"><a href="./products.html?type=all">PRODUCTS</a></li>
                         <li class="nav-bar-item"><a href="">CART</a></li>
                         <li class="nav-bar-item"><a href="">CONTACT</a></li>
                     </ul>
@@ -66,81 +66,80 @@
         </div>
     </nav>
     <main>
-        <section id="best-offers" class="active">
-            <span id="best-offers-pattern"></span>
+        <section id="detail" class="active">
             <div class="section-wrapper">
-                <div id="best-offers-content">
-                    <h2>BEST OFFERS</h2>
-                    <h1>Alitoo Bluetooth Headphone</h1>
-                    <h3>Wireless HiFi Stereo Headset Foldable </h3>
-                    <p id="best-offers-content-description">Beautiful, stylish and morden design</p>
-                    <ul>
-                        <li><p>Superior Hi-Fi stereo</p></li>
-                        <li><p>Comfortable, Foldable, Stretchable</p></li>
-                        <li><p>Beautiful and stylish design</p></li>
-                    </ul>
-                    <p class="prices">$200</p>
-                    <p class="prices sales">$120</p>
-                    <button class="btn" id="hero-btn"><span><a href="">Buy now</a></span></button>
-                    <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
-                </div>
-                <div id="best-offers-image" class="3d-animation">
-                    <img src="../assets/images/Headphone/thumbnail/item-02.03.png" alt="hero-image" data-scale="1.2">
-                    <span class="square"></span>
-                </div>
-            </div>
-        </section>
-        <section id="products">
-            <div class="section-wrapper">
-                <div id="products-title">
+                <div id="detail-title">
                     <span><a href="./products.html?type=all">Products</a></span>
                     <span><img src="../assets/icon/Next-icon.svg" alt=""></span>
-                    <span><a id="products-title-filter" href="./products.html?type=all">All products</a></span>
+                    <span><a id="products-title-filter" href="">Skullcandy Hesh ANC Wireless</a></span>
                 </div>
-                <ul id="products-filter">
-                    <div id="products-hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <li class="">All products</li>
-                    <li>Headphone</li>
-                    <li>Wireless Headphone</li>
-                    <li>Gaming Mouse</li>
-                    <li>Wireless Mouse</li>
-                </ul>
-                <ul id="products-sort">
-                    <span>Sort item by prices:</span>
-                    <li>Increase</li>
-                    <li>Decrease</li>
-                </ul>
-                <div id="products-menu">
-                    <div class="products-item 3d-animation" data-badge=true>
-                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
-                        <h1>Item Name</h1>
-                        <div class="item-description">
-                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
-                            <span>$99.9</span>
+                <div id="detail-content">
+                    <div id="detail-image">
+                        <img id="detail-main-image" src="../assets/images/Gaming Mouse/item-02.02.png" alt="">
+                        <div id="detail-sub-image">
+                            <div id="previous"></div>
+                            <img class="detail-sub-image" src="" alt="">
+                            <img class="detail-sub-image" src="" alt="">
+                            <img class="detail-sub-image" src="" alt="">
+                            <img class="detail-sub-image" src="" alt="">
+                            <div id="next"></div>
                         </div>
                     </div>
-                    <div class="products-item 3d-animation">
-                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
-                        <h1>Item Name</h1>
-                        <div class="item-description">
-                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
-                            <span>$99.9</span>
+                    <div id="detail-main-text">
+                        <h1 class="detail-main-text-title">Alitoo Bluetooth Headphone</h1>
+                        <p id="detail-main-text-description">Beautiful, stylish and morden design</p>
+                        <ul>
+                            <li class="detail-main-description"><p>Superior Hi-Fi stereo</p></li>
+                            <li class="detail-main-description"><p>Comfortable, Foldable, Stretchable</p></li>
+                            <li class="detail-main-description"><p>Beautiful and stylish design</p></li>
+                        </ul>
+                        <div id="prices">
+                            <p>$899</p>
+                            <h1>$599</h1>
+                            <div id="detail-item-count">
+                                <span class="item-count-btn decrease"><img src="../assets/icon/Pre-icon.svg" alt=""></span>
+                                <input class="item-count" type="number" value="1">
+                                <span class="item-count-btn increase"><img src="../assets/icon/Next-icon.svg" alt=""></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="products-item 3d-animation">
-                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
-                        <h1>Item Name</h1>
-                        <div class="item-description">
-                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
-                            <span>$99.9</span>
+                        <div id="color">
+                            <div class="color" data-color="#000000"></div>
+                            <div class="color" data-color="#000000"></div>
+                            <div class="color" data-color="#000000"></div>
+                        </div>
+                        <div id="detail-button">
+                            <button class="btn active" id=""><span><a>Check out</a></span></button>
+                            <button class="btn" id="add-to-cart"><span><a>Add to cart</a></span></button>
                         </div>
                     </div>
                 </div>
-                <!-- <button class="btn" id="hero-btn"><span><a>Load more</a></span></button> -->
+                <hr>
+                <div id="similar-menu">
+                    <div class="similar-item 3d-animation" data-badge=true>
+                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
+                        <h1>Item Name</h1>
+                        <div class="item-description">
+                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
+                            <span>$99.9</span>
+                        </div>
+                    </div>
+                    <div class="similar-item 3d-animation">
+                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
+                        <h1>Item Name</h1>
+                        <div class="item-description">
+                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
+                            <span>$99.9</span>
+                        </div>
+                    </div>
+                    <div class="similar-item 3d-animation">
+                        <img data-scale="1" src="../assets/images/Wireless Headphone/item-03.02.png" alt="">
+                        <h1>Item Name</h1>
+                        <div class="item-description">
+                            <button class="btn active" id="hero-btn"><span><a href="">Add to cart</a></span></button>
+                            <span>$99.9</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="banner">
@@ -211,6 +210,6 @@
             </div>
         </div>
     </footer>
-    <script src="../js/products.js"></script>
+    <script src="../js/detail.js"></script>
 </body>
 </html>

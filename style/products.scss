@@ -143,7 +143,7 @@ main {
                 height: 100%;
                 max-height: 400px;
                 object-fit: contain;
-                transform:scale(1.3,1.3);
+                transform:scale(1.2,1.2);
                 z-index:2;
                 transition: all 100ms ease;
                 &.transition {
@@ -302,23 +302,11 @@ main {
                 }
             }
         }
-        #products-filter {
+        #products-filter{
             position: relative;
             display:flex;
             justify-content: space-between;
-            margin-bottom: 60px;
-            &::after {
-                position: absolute;
-                content:'';
-                display:block;
-                width: 100vw;
-                height: 160%;
-                top:50%;
-                left:50%;
-                transform: translate(-50%,-50%);
-                background-color: var(--light-gray);
-                z-index: -1;
-            }
+            margin-bottom: 20px;
             #products-hamburger {
                 position: absolute;
                 left:0;
@@ -354,25 +342,50 @@ main {
                 }
             }
             li {
+                cursor: pointer;                
+                transition: all 300ms ease;
                 &.active {
-                    a {
-                        font-weight: 600;
-                        color: var(--purple);
-                        opacity: 1;
-                    }
+                    font-weight: 600;
+                    color: var(--purple);
+                    opacity: 1;
                 }
-                a {
-                    font-size: var(--f-section-menu);
-                    color: var(--gray);
-                    opacity: 0.6;
-                    &:hover {
-                        opacity: 1;
-                    }
+                font-size: var(--f-section-menu);
+                color: var(--gray);
+                opacity: 0.6;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        #products-sort {
+            display:flex;
+            margin-bottom: 80px;
+            span {
+                color: var(--gray);
+                font-weight: 400;
+                margin-right: 15px;
+            }
+            li {
+                &+li {
+                    margin-left: 20px;
+                }
+                cursor: pointer;
+                &.active {
+                    font-weight: 600;
+                    color: var(--purple);
+                    opacity: 1;
+                }
+                font-size: var(--f-section-menu);
+                color: var(--gray);
+                opacity: 0.6;
+                &:hover {
+                    opacity: 1;
                 }
             }
         }
         #products-menu {
             display: grid;
+            min-height: 70vh;
             margin-bottom: 100px;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 40px;
@@ -380,11 +393,13 @@ main {
                 width: 100%;
                 padding: 30px;
                 background-color: var(--white);
-                box-shadow: 0 4px 8px rgba(108,50,152,0.11);
-                border-radius: 5px;
+                border-radius: 10px;
                 position: relative;
                 display: flex;
                 flex-direction: column;
+                border: 1px solid rgba(0,0,0,0.1);
+                transition: box-shadow 200ms ease;
+                overflow: hidden;
                 &[data-badge="true"]{
                     &:hover::after {
                         opacity: 1;
@@ -411,13 +426,16 @@ main {
                         }
                     }
                 }
+                &:hover {
+                    box-shadow: 0 3px 5px rgba(108,50,152,0.11);
+                }
                 img {
                     width: 100%;
                     height: 100%;
                     max-height: 170px;
                     object-fit: contain;
                     object-position: center;
-                    margin-bottom: 30px;
+                    margin-bottom: 80px;
                     transition: all 100ms ease;
                     &.transition {
                         transition: all 1000ms ease;
@@ -427,6 +445,7 @@ main {
                     font-size: 16px;
                     font-weight: 600;
                     color: var(--purple);
+                    margin-bottom: 20px;
                 }
                 .item-description {
                     color: var(--gray);
@@ -435,12 +454,16 @@ main {
                     align-items: flex-end;
                     padding-top: 10px;
                     margin-top: auto;
-                    span:nth-of-type(1) {
-                        font-size: 14px;
-                        font-weight: 400;
-                        color: var(--gray);
+                    align-items: center;
+                    .btn {
+                        margin:0;
+                        cursor: pointer;
+                        &.added {
+                            background-color: var(--pink);
+                            border-color: var(--pink);
+                        }
                     }
-                    span:nth-of-type(2) {
+                    span:nth-of-type(1) {
                         font-size: 16px;
                         font-weight: 600;
                         color: var(--gray);
@@ -453,6 +476,48 @@ main {
             margin:auto;
             margin-bottom: 40px;
         }
+    }
+}
+@media only screen and (max-width: 935px) {
+    #products .section-wrapper #products-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media only screen and (max-width: 675px) {
+    #products .section-wrapper #products-filter {
+        flex-direction: column;
+        height: 30px;
+        overflow: hidden;
+        transition: height 300ms ease;
+        &.expanded {
+            height: 135px;
+            li {
+                opacity: 1;
+                visibility: visible;
+                &.active {
+                    opacity: 1;
+                }
+            }
+        }
+        #products-hamburger {
+            display:block;
+            top:0;
+            transform: none;
+        }
+        li {
+            opacity: 0;
+            visibility: hidden;
+            margin-left: 50px;
+            &+li {
+                margin-top: 10px;
+            }
+            &.active {
+                opacity: 0;
+            }
+        }
+    }
+    #products .section-wrapper #products-menu {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 /************************

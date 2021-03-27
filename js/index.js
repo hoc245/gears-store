@@ -1,9 +1,4 @@
-$(document).ready(function() {
-    getData();
-})
-window.onload = () => {
-    // changeImage(dataHolderUrl);
-}
+
 /*******************
 ******* NAV ********
 *******************/
@@ -33,7 +28,17 @@ window.addEventListener('scroll',function(){
     } else {
         navMain.removeClass('scroll');
     }
+    if (window.pageYOffset < 500) {
+        $('.go-top').hide();
+    } else {
+        $('.go-top').show();
+    }
 })
+$('.go-top').click(function(){
+    $('html, body').animate({
+        scrollTop: 0,
+    },800)
+}).hide();
 /*****************************
 ******* SMOOTH SCROLL ********
 ******************************/
@@ -53,7 +58,7 @@ navBarAnchor.click(function(){
         var hash = this.hash;
         $('html, body').animate({
             scrollTop: $(hash).offset().top
-        },800,function(){
+        },1000,function(){
             window.location.hash = hash
         })
     }
@@ -64,7 +69,7 @@ footerBarAnchor.click(function(){
         var hash = this.hash;
         $('html, body').animate({
             scrollTop: $(hash).offset().top
-        },800,function(){
+        },1000,function(){
             window.location.hash = hash
         })
     }
@@ -160,24 +165,3 @@ setThemeProducts();
 /********************************
 *********** AJAX JSON ***********
 *********************************/
-var dataHolderUrl;
-var dataHolderName;
-var dataHolderDes;
-var test;
-var getData = function() {
-    var url = "../json/data.json";
-    $.ajax({
-        url : url,
-        success : function(data) {
-            test = data;
-            for (var i = 0 ; i < data.length ; i++) {
-                if (data[i].products == "Wireless Headphone") {
-                    dataHolderUrl = data[i].item.mainItem;
-                    dataHolderName = data[i].item.name;
-                    dataHolderDes = data[i].item.description;
-                }
-            }
-        }
-    })
-}
-
