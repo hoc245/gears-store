@@ -37,28 +37,12 @@ window.onload = function() {
     // Add main image url
     mainImage.attr('src',`../assets/images/${productsType}/item-${productsID}.01.png`);
     // Add sub image url
-    for (var i = 0 ; i < dataHolderSubUrl.length ; i++) {
-        if (dataHolderSubUrl[i].substr(0,2) == productsID) {
-            if (subImageIndex <= 3) {
-                subImage[subImageIndex].setAttribute('src',`../assets/images/${productsType}/thumbnail/item-${dataHolderSubUrl[i]}.png`);
-                subImageIndex++;
-            }
-        }
-        if (i == (dataHolderSubUrl.length - 1)) {
-            subImage.each(function(){
-                if ($(this).attr('src') == "") {
-                    $(this).fadeOut(0);
-                } else {
-                    $(this).fadeIn();
-                }
-            })
-        }
-    }
+    addSubImage(productsID);
     // Hover on sub image
-    var mainImageUrl = mainImage.attr('src')
-    subImage.mouseenter(function() {
-        changeImage(mainImage,$(this).attr('src').replace("thumbnail/",""));
-    })
+    // var subImageItem = $('.detauil-sub-image');
+    // subImageItem.mouseenter(function() {
+    //     changeImage(mainImage,$(this).attr('src').replace("thumbnail/",""));
+    // })
     // Get index of main item
     var itemNameIndex = parseInt(productsID.substr(1,1));
     // Add title
@@ -73,6 +57,8 @@ window.onload = function() {
     })
     // Add item prices
     $('#prices p').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])*1.5}`);
+    // Add color
+    addColor(productsID);
     // Add item prices sales off
     $('#prices h1').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])}`);
     // Add to cart icon
@@ -260,8 +246,7 @@ window.addEventListener('scroll',() => {
 *********** Add Items ***********
 *********************************/
 var mainImage = $('#detail-main-image');
-var subImage = $('.detail-sub-image');
-var subImageIndex = 0;
+var subImage = $('#detail-sub-image');
 
 var similarContainer = $('#similar-menu');
 var createEle = function(id,type,url,name,badge,prices) {
@@ -296,6 +281,7 @@ var dataHolderUrl;
 var dataHolderName;
 var dataHolderDes;
 var dataHolderPrices;
+var dataHolderColor;
 let searchParams = new URLSearchParams(window.location.search);
 let productsType = searchParams.get('type');
 let productsID = searchParams.get('id');
@@ -311,6 +297,7 @@ var getData = function() {
                     dataHolderSubUrl = data[i].item.subItem.split(',');
                     dataHolderDes = data[i].item.description;
                     dataHolderPrices = data[i].item.prices;
+                    dataHolderColor = data[i].item.color;
                     for (var j = 0; j < data[i].item.mainItem.length ; j ++) {
                         if (data[i].item.mainItem[j].substr(0,2) != productsID) {
                             createEle(data[i].item.mainItem[j].substr(0,2),data[i].products,data[i].item.mainItem[j],data[i].item.name[j],data[i].item.badge[j],data[i].item.prices[j]);
@@ -327,6 +314,55 @@ var getData = function() {
 
 var changeImage = function(ele,url) {
     ele.attr('src',url);
+}
+
+/************************************
+*********** Add sub Image ***********
+*************************************/
+
+var addSubImage = function(id) {
+    var idSubImageArray = [];
+    var imageHtml = "";
+    for (var i = 0 ; i < dataHolderSubUrl.length ; i++) {
+        if (dataHolderSubUrl[i].substr(0,2) == id) {
+            idSubImageArray.push(dataHolderSubUrl[i]);
+        }
+    }
+    for (var j = 0 ; j < idSubImageArray.length ; j++) {
+        imageHtml+=`<img class="detail-sub-image" src="../assets/images/${productsType}/thumbnail/item-${idSubImageArray[j]}.png" alt="${productsType}.${id}">`
+    }
+    subImage.html(`
+        ${imageHtml}
+    `)
+    subImage.attr('style',`grid-template-columns: repeat(${idSubImageArray.length > 8 ? 8 : idSubImageArray.length},auto);gap: 5px`);
+    var subImageItem = $('.detail-sub-image');
+    subImageItem.mouseenter(function() {
+        subImageItem.removeClass('active');
+        changeImage(mainImage,$(this).attr('src').replace("thumbnail/",""));
+        $(this).addClass('active');
+    })
+}
+/****************************************
+*************** Add Color ***************
+*****************************************/
+var color =$('#color');
+
+var addColor = function(id) {
+    var idColorArray = [];
+    var colorHtml = "";
+    for (var i = 0 ; i < dataHolderColor.length ; i++) {
+        if (dataHolderColor[i].substr(0,2) == productsID) {
+            idColorArray.push(dataHolderColor[i].substr(3,dataHolderColor[i].length - 3));
+        }
+    }
+    for (var j = 0 ; j < idColorArray.length; j ++) {
+        if (idColorArray[j] == "#FFFFFF" || idColorArray[j] == "#ffffff") {
+            colorHtml+=`<div class="color" data-color="${idColorArray[j]}" style="background-color: ${idColorArray[j]};border: 1px solid rgba(0,0,0,0.2)"></div>`;
+        } else {
+            colorHtml+=`<div class="color" data-color="${idColorArray[j]}" style="background-color: ${idColorArray[j]}"></div>`;
+        }
+    }
+    color.html(colorHtml);
 }
 
 /*****************************************

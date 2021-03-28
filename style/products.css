@@ -1509,20 +1509,24 @@ main section .section-wrapper {
           box-shadow: 0 3px 5px rgba(108, 50, 152, 0.11);
 }
 
-#products .section-wrapper #products-menu .products-item img {
+#products .section-wrapper #products-menu .products-item .image-link {
+  margin-bottom: 80px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+#products .section-wrapper #products-menu .products-item .image-link img {
   width: 100%;
-  height: 100%;
-  max-height: 170px;
+  height: 170px;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
-  margin-bottom: 80px;
   -webkit-transition: all 100ms ease;
   transition: all 100ms ease;
 }
 
-#products .section-wrapper #products-menu .products-item img.transition {
+#products .section-wrapper #products-menu .products-item .image-link img.transition {
   -webkit-transition: all 1000ms ease;
   transition: all 1000ms ease;
 }

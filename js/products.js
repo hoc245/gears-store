@@ -226,7 +226,7 @@ var createEle = function(id,type,url,name,badge,des,prices) {
     item.setAttribute('data-prices',prices);
     item.setAttribute('data-prices',prices);
     item.innerHTML = `
-        <a href="./detail.html?type=${type}&id=${id}">
+        <a class="image-link" href="./detail.html?type=${type}&id=${id}">
             <img data-scale="1" src="../assets/images/${type}/thumbnail/item-${url}.png" alt="${url}">
         </a>
         <h1>${name}</h1>
