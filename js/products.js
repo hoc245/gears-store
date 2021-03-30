@@ -2,10 +2,20 @@ $(document).ready(function() {
     getData();
     clearEle();
 })
+var itemQuantily;
 var cartItemCount;
 var cartItemUrl;
+var cartItemName;
+var cartItemDes;
+var cartItemPrices;
 var wishlistCount = $('.wishlist-count');
 var wishlistIcon = $('.wishlist-icon');
+if (localStorage.getItem('itemQuantily') == null) {
+    itemQuantily = [""];
+    localStorage.setItem('itemQuantily',itemQuantily);
+} else {
+    itemQuantily = localStorage.getItem('itemQuantily').split(';');
+}
 if (localStorage.getItem('cartItemCount') == null || localStorage.getItem('cartItemCount') == "0") {
     cartItemCount = 0;
     wishlistCount.hide();
@@ -22,6 +32,24 @@ if (localStorage.getItem('cartItemUrl') == null) {
     localStorage.setItem('cartItemUrl',cartItemUrl);
 } else {
     cartItemUrl = localStorage.getItem('cartItemUrl').split(';');
+}
+if (localStorage.getItem('cartItemName') == null) {
+    cartItemName = [];
+    localStorage.setItem('cartItemName',cartItemName);
+} else {
+    cartItemName = localStorage.getItem('cartItemName').split(';');
+}
+if (localStorage.getItem('cartItemDes') == null) {
+    cartItemDes = [];
+    localStorage.setItem('cartItemDes',cartItemDes);
+} else {
+    cartItemDes = localStorage.getItem('cartItemDes').split(';');
+}
+if (localStorage.getItem('cartItemPrices') == null) {
+    cartItemPrices = [];
+    localStorage.setItem('cartItemPrices',cartItemPrices);
+} else {
+    cartItemPrices = localStorage.getItem('cartItemPrices').split(';');
 }
 window.onload = function() {
     let currentUrl = new URLSearchParams(window.location.search);
@@ -56,20 +84,76 @@ window.onload = function() {
     productsItemBtn.click(function() {
         $(this).toggleClass('added');
         var itemUrlAdded = $(this).parent('div').parent('div').find('img').attr('src');
+        var itemNameAdded = $(this).parent('div').parent('div').find('h1').html();
+        var itemDesAdded = $(this).parent('div').attr('data-description');
+        var itemPricesAdded = $(this).next('span').html().substr(1,$(this).next('span').html().length -1);
+        var checkUrl = $(this).parent('div').parent('div').find('a')[0].getAttribute('href');
+        var check = checkUrl.substr(checkUrl.indexOf(`type`),checkUrl.length-14);
         if ($(this).hasClass('added')) {
             cartItemCount += 1;
             $(this).find('span').find('a').html('Item added!');
             $(this).parent('div').parent('div').addClass('added');
             if (cartItemUrl.indexOf(itemUrlAdded) == -1) {
-                cartItemUrl.push(itemUrlAdded);
+                if (cartItemUrl[0] != "") {
+                    cartItemUrl.push(itemUrlAdded);
+                    cartItemName.push(itemNameAdded);
+                    cartItemDes.push(itemDesAdded);
+                    cartItemPrices.push(itemPricesAdded);
+                } else {
+                    cartItemUrl[0] = itemUrlAdded;
+                    cartItemName[0] = itemNameAdded;
+                    cartItemDes[0] = itemDesAdded;
+                    cartItemPrices[0] = itemPricesAdded;
+                }
+            }
+            var itemQuantilyHas;
+            for (var i = 0 ; i < itemQuantily.length ; i++ ) {
+                if (itemQuantily[i].indexOf(check) == -1) {
+                    itemQuantilyHas = false;
+                    continue;
+                } else {
+                    itemQuantilyHas = true;
+                    var value = itemQuantily[i].substr(itemQuantily[i].indexOf(`quantily`)).substr(9);
+                    console.log(value);
+                    itemQuantily[i] = check + `&quantily=${parseInt(value) + 1}`;
+                }
+            }
+            if (itemQuantilyHas == false) {
+                if (itemQuantily[0] == ""){
+                    itemQuantily[0] = check + `&quantily=1`;
+                } else {
+                    itemQuantily.push(check + `&quantily=1`);
+                }
+                localStorage.setItem(`itemQuantily`,itemQuantily.join(";"));
             }
         } else {
+            for (var i = 0 ; i < itemQuantily.length ; i++ ) {
+                if (itemQuantily[i].indexOf(check) == -1) {
+                    continue;
+                } else {
+                    if (itemQuantily.length == 1) {
+                        itemQuantily[0] = "";   
+                    } else {
+                        itemQuantily.splice(i,1);
+                    }
+                }
+            }
+            if (itemQuantilyHas == false) {
+                itemQuantily.push(check + `&quantily=1`);
+            }
             $(this).find('span').find('a').html('Add to cart');
             $(this).parent('div').parent('div').removeClass('added');
             cartItemCount -= 1;
             cartItemUrl.splice($.inArray(itemUrlAdded,cartItemUrl),1);
+            cartItemName.splice($.inArray(itemNameAdded,cartItemName),1);
+            cartItemDes.splice($.inArray(itemDesAdded,cartItemDes),1);
+            cartItemPrices.splice($.inArray(itemPricesAdded,cartItemPrices),1);
         }
         localStorage.setItem('cartItemCount',cartItemCount);
+        localStorage.setItem('cartItemName',cartItemName.join(';'));
+        localStorage.setItem('cartItemDes',cartItemDes.join(';'));
+        localStorage.setItem('cartItemPrices',cartItemPrices.join(';'));
+        localStorage.setItem(`itemQuantily`,itemQuantily.join(";"));
         wishlistCount.html(cartItemCount);
         if (wishlistCount.html() == "0") {
             wishlistCount.hide();
@@ -230,7 +314,7 @@ var createEle = function(id,type,url,name,badge,des,prices) {
             <img data-scale="1" src="../assets/images/${type}/thumbnail/item-${url}.png" alt="${url}">
         </a>
         <h1>${name}</h1>
-        <div class="item-description">
+        <div class="item-description" data-description="${des.substr(0,des.indexOf('<br>'))}">
         <button class="btn active" id="hero-btn"><span><a>Add to cart</a></span></button>
             <span>$${prices}</span>
         </div>
@@ -261,7 +345,7 @@ var getData = function() {
                 dataHolderDes = data[i].item.description;
                 dataHolderPrices = data[i].item.prices;
                 for (var j = 0; j < data[i].item.mainItem.length ; j ++) {
-                    createEle(data[i].item.mainItem[j].substr(0,2),data[i].products,data[i].item.mainItem[j],data[i].item.name[j],data[i].item.badge[j],"test",data[i].item.prices[j]); 
+                    createEle(data[i].item.mainItem[j].substr(0,2),data[i].products,data[i].item.mainItem[j],data[i].item.name[j],data[i].item.badge[j],data[i].item.description[j],data[i].item.prices[j]); 
                 }
             }
         }
