@@ -149,6 +149,9 @@ window.onload = function() {
             cartItemDes.splice($.inArray(itemDesAdded,cartItemDes),1);
             cartItemPrices.splice($.inArray(itemPricesAdded,cartItemPrices),1);
         }
+        if (productsItemBtn.hasClass('active') == false) {
+            localStorage.clear();
+        }
         localStorage.setItem('cartItemCount',cartItemCount);
         localStorage.setItem('cartItemName',cartItemName.join(';'));
         localStorage.setItem('cartItemDes',cartItemDes.join(';'));
@@ -158,6 +161,7 @@ window.onload = function() {
         if (wishlistCount.html() == "0") {
             wishlistCount.hide();
             wishlistIcon.removeClass('added');
+            localStorage.clear();
         } else {
             wishlistCount.show();
             wishlistIcon.addClass('added');

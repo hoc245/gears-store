@@ -164,11 +164,15 @@ window.onload = function() {
         if (wishlistCount.html() == "0") {
             wishlistCount.hide();
             wishlistIcon.removeClass('added');
+            localStorage.clear();
         } else {
             wishlistCount.show();
             wishlistIcon.addClass('added');
         }
         localStorage.setItem('cartItemUrl',cartItemUrl.join(';'))
+        if (similarItemBtn.hasClass('active') == false) {
+            localStorage.clear();
+        }
     })
     // Re-add on load
     similarItem.each(function() {
@@ -438,6 +442,73 @@ var addColor = function(id) {
     }
 }
 
+/**************************************
+*********** Wishlist Button ***********
+***************************************/
+var wishListBtn = $('#check-out');
+
+wishListBtn.click(function() {
+    if ($('#add-to-cart').hasClass('active') == false) {
+        var element = $(event.target).parent().parent();
+        var itemQuantilyHas;
+        var currentType = productsType;
+        var currentId = productsID;
+        var check = `type=${currentType}&id=${currentId}`;
+        var val = $('.item-count').val();
+        var itemNameAdded = $('.detail-main-text-title').html();
+        var itemDesAdded = $('#detail-main-text-description').html();
+        var itemPricesAdded = $('#prices h1').html().substr(1);
+        for (var i = 0 ; i < itemQuantily.length ; i++ ) {
+            if (itemQuantily[i].indexOf(check) == -1) {
+                continue;
+            } else {
+                if (itemQuantily.length == 1) {
+                    itemQuantily[0] = "";   
+                } else {
+                    itemQuantily.splice(i,1);
+                }
+            }
+        }
+        element.find('span').find('a').html('Add to cart');
+        element.find('span').find('a').removeAttr('href');
+        cartItemCount -= 1;
+        cartItemUrl.splice($.inArray(checkCurrentItem,cartItemUrl),1);
+        localStorage.setItem('cartItemCount',cartItemCount);
+        wishlistCount.html(cartItemCount);
+        if (wishlistCount.html() == "0") {
+            wishlistCount.hide();
+            wishlistIcon.removeClass('added');
+        } else {
+            wishlistCount.show();
+            wishlistIcon.addClass('added');
+        }
+        if (cartItemName.indexOf(itemNameAdded) == -1) {
+            if (cartItemName[0] == "") {
+                cartItemName[0] = itemNameAdded;
+                cartItemDes[0] = itemDesAdded;
+                cartItemPrices[0] = itemPricesAdded;
+            } else {
+                cartItemName.push(itemNameAdded);
+                cartItemDes.push(itemDesAdded);
+                cartItemPrices.push(itemPricesAdded);
+            }  
+        }
+        localStorage.setItem('cartItemCount',cartItemCount);
+        if (cartItemName.length >= 2) {
+            localStorage.setItem('cartItemName',cartItemName.join(';'));
+            localStorage.setItem('cartItemDes',cartItemDes.join(';'));
+            localStorage.setItem('cartItemPrices',cartItemPrices.join(';'));
+            localStorage.setItem('cartItemUrl',cartItemUrl.join(';'));
+        } else {
+            localStorage.setItem('cartItemName',cartItemName);
+            localStorage.setItem('cartItemDes',cartItemDes);
+            localStorage.setItem('cartItemPrices',cartItemPrices);
+            localStorage.setItem('cartItemUrl',cartItemUrl);
+        }
+        localStorage.setItem(`itemQuantily`,itemQuantily.join(";"));
+        }
+})
+
 /*****************************************
 *********** Add to cart Button ***********
 ******************************************/
@@ -451,6 +522,9 @@ addToCart.click((event) => {
     var currentId = productsID;
     var check = `type=${currentType}&id=${currentId}`;
     var val = $('.item-count').val();
+    var itemNameAdded = $('.detail-main-text-title').html();
+    var itemDesAdded = $('#detail-main-text-description').html();
+    var itemPricesAdded = $('#prices h1').html().substr(1);
     if (element.hasClass('active')) {
         element.find('span').find('a').html('Added!');
         if (cartItemUrl[0] != "") {
@@ -501,7 +575,29 @@ addToCart.click((event) => {
         wishlistCount.show();
         wishlistIcon.addClass('added');
     }
-    localStorage.setItem('cartItemUrl',cartItemUrl.join(';'));
+    if (cartItemName.indexOf(itemNameAdded) == -1) {
+        if (cartItemName[0] == "") {
+            cartItemName[0] = itemNameAdded;
+            cartItemDes[0] = itemDesAdded;
+            cartItemPrices[0] = itemPricesAdded;
+        } else {
+            cartItemName.push(itemNameAdded);
+            cartItemDes.push(itemDesAdded);
+            cartItemPrices.push(itemPricesAdded);
+        }  
+    }
+    localStorage.setItem('cartItemCount',cartItemCount);
+    if (cartItemName.length >= 2) {
+        localStorage.setItem('cartItemName',cartItemName.join(';'));
+        localStorage.setItem('cartItemDes',cartItemDes.join(';'));
+        localStorage.setItem('cartItemPrices',cartItemPrices.join(';'));
+        localStorage.setItem('cartItemUrl',cartItemUrl.join(';'));
+    } else {
+        localStorage.setItem('cartItemName',cartItemName);
+        localStorage.setItem('cartItemDes',cartItemDes);
+        localStorage.setItem('cartItemPrices',cartItemPrices);
+        localStorage.setItem('cartItemUrl',cartItemUrl);
+    }
     localStorage.setItem(`itemQuantily`,itemQuantily.join(";"));
 })
 

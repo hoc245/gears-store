@@ -179,6 +179,9 @@ var addCartItem = function() {
             localStorage.setItem('itemQuantily',itemQuantily.join(";"));
         })
     })
+    if (removeBtn.length == 0) {
+        localStorage.clear();
+    }
 }
 
 /***************************
@@ -213,5 +216,6 @@ var removeItem = function(ele) {
         cartList.html(`
             <p class="notification">Looks like you have nothing in your shopping cart</p>
         `)
+        localStorage.clear();
     }
 }
