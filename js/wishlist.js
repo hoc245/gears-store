@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    // getData();
-    // clearEle();
+    var preload = $('#preload');
+    preload.addClass('active');
 })
 // Check localStorage
 var itemQuantily;
@@ -54,6 +54,8 @@ if (localStorage.getItem('itemQuantily') == null) {
 }
 window.onload = function() {
     addCartItem();
+    var preload = $('#preload');
+    preload.fadeOut(500);
 }
 /*******************
 ******* NAV ********

@@ -1,4 +1,11 @@
-
+$(document).ready(function() {
+    var preload = $('#preload');
+    preload.addClass('active');
+})
+window.onload = function() {
+    var preload = $('#preload');
+    preload.fadeOut(500);
+}
 /*******************
 ******* NAV ********
 *******************/
@@ -32,11 +39,6 @@ window.addEventListener('scroll',function(){
         $('.go-top').hide();
     } else {
         $('.go-top').show();
-    }
-    if ($('.nav-bar-item.active a').html() == "PRODUCTS") {
-        $('.nav-bar-item a')[2].setAttribute('href',`./products/products.html`);
-    } else {
-        $('.nav-bar-item a')[2].setAttribute('href','#products');
     }
 })
 $('.go-top').click(function(){

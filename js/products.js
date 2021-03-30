@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var preload = $('#preload');
+    preload.addClass('active');
     getData();
     clearEle();
 })
@@ -206,6 +208,8 @@ window.onload = function() {
         let scale = image.attr('data-scale');
         image.css('transform',`rotateY(0deg) rotateX(0deg) scale(${scale},${scale})`);
     })
+    var preload = $('#preload');
+    preload.fadeOut(500);
 }
 /*******************
 ******* NAV ********
