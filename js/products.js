@@ -1,9 +1,3 @@
-$(document).ready(function() {
-    var preload = $('#preload');
-    preload.addClass('active');
-    getData();
-    clearEle();
-})
 var itemQuantily;
 var cartItemCount;
 var cartItemUrl;
@@ -12,6 +6,24 @@ var cartItemDes;
 var cartItemPrices;
 var wishlistCount = $('.wishlist-count');
 var wishlistIcon = $('.wishlist-icon');
+var hamberger = $('#hamberger');
+var navOverlay = $('#nav-overlay');
+var navBar = $('#nav-bar');
+var navMain = $('#nav');
+var navBarAnchor = $('.nav-bar-item a');
+var footerBarAnchor = $('#footer-menu ul li a');
+var sectionWrapper = $('section');
+var productsContainer = $('#products-menu');
+var dataHolderUrl;
+var dataHolderName;
+var dataHolderDes;
+var dataHolderPrices;
+let searchParams = new URLSearchParams(window.location.search);
+let productsType = searchParams.has('type') == true ? searchParams.get('type') : 'all';
+var menuFilter = $('#products-filter li');
+var productsSort = $('#products-sort li');
+var productsFilter = $('#products-filter');
+var productsFilterBtn = $('#products-hamburger');
 if (localStorage.getItem('itemQuantily') == null) {
     itemQuantily = [""];
     localStorage.setItem('itemQuantily',itemQuantily);
@@ -53,6 +65,12 @@ if (localStorage.getItem('cartItemPrices') == null) {
 } else {
     cartItemPrices = localStorage.getItem('cartItemPrices').split(';');
 }
+$(document).ready(function() {
+    var preload = $('#preload');
+    preload.addClass('active');
+    getData();
+    clearEle();
+})
 window.onload = function() {
     let currentUrl = new URLSearchParams(window.location.search);
     // Scroll to products section when load.
@@ -214,10 +232,6 @@ window.onload = function() {
 /*******************
 ******* NAV ********
 *******************/
-var hamberger = $('#hamberger');
-var navOverlay = $('#nav-overlay');
-var navBar = $('#nav-bar');
-var navMain = $('#nav');
 hamberger.click(() => {
     var x = window.matchMedia("(max-width: 768px)")
     if (x.matches) {
@@ -254,8 +268,6 @@ $('.go-top').click(function(){
 /*****************************
 ******* SMOOTH SCROLL ********
 ******************************/
-var navBarAnchor = $('.nav-bar-item a');
-var footerBarAnchor = $('#footer-menu ul li a');
 navBarAnchor.click(function(){
     if (hamberger.hasClass('active')) {
         hamberger.removeClass('active');
@@ -289,7 +301,6 @@ footerBarAnchor.click(function(){
 /***********************
 ******* SECTION ********
 ***********************/
-var sectionWrapper = $('section');
 window.addEventListener('scroll',() => {
     var offsetY = window.pageYOffset;
     var innerHeight = window.innerHeight;
@@ -308,7 +319,6 @@ window.addEventListener('scroll',() => {
 /********************************
 *********** Add Items ***********
 *********************************/
-var productsContainer = $('#products-menu');
 var createEle = function(id,type,url,name,badge,des,prices) {
     var item = document.createElement('div');
     item.setAttribute('data-badge',badge);
@@ -336,12 +346,6 @@ var clearEle = function() {
 /********************************
 *********** AJAX JSON ***********
 *********************************/
-var dataHolderUrl;
-var dataHolderName;
-var dataHolderDes;
-var dataHolderPrices;
-let searchParams = new URLSearchParams(window.location.search);
-let productsType = searchParams.has('type') == true ? searchParams.get('type') : 'all';
 var getData = function() {
     var url = "../json/data.json";
     $.ajax({
@@ -363,7 +367,6 @@ var getData = function() {
 /********************************
 ************ Products ***********
 *********************************/
-var menuFilter = $('#products-filter li');
 
 menuFilter.click(function() {
     var type = $(this).html();
@@ -401,7 +404,6 @@ var softEle = function(type) {
         item.fadeIn(300)
     }, 400);;
 }
-var productsSort = $('#products-sort li');
 productsSort.click(function() {
     var type = $(this).html();
     productsSort.removeClass('active');
@@ -409,8 +411,6 @@ productsSort.click(function() {
     softEle(type);
 })
 
-var productsFilter = $('#products-filter');
-var productsFilterBtn = $('#products-hamburger');
 
 productsFilterBtn.click(function() {
     $(this).toggleClass('active');

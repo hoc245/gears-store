@@ -1,11 +1,18 @@
-$(document).ready(function() {
-    var preload = $('#preload');
-    preload.addClass('active');
-    getData();
-    clearEle();
-    $('#detail-content').fadeOut(0);
-})
-// Check localStorage
+var navBarAnchor = $('.nav-bar-item a');
+var footerBarAnchor = $('#footer-menu ul li a');
+var sectionWrapper = $('section');
+var mainImage = $('#detail-main-image');
+var subImage = $('#detail-sub-image');
+var similarContainer = $('#similar-menu');
+var wishListBtn = $('#check-out');
+var addToCart = $('.btn#add-to-cart');
+var inputNumber = $('.item-count');
+var itemDecrease = $('.item-count-btn.decrease');
+var itemIncrease = $('.item-count-btn.increase');
+var hamberger = $('#hamberger');
+var navOverlay = $('#nav-overlay');
+var navBar = $('#nav-bar');
+var navMain = $('#nav');
 var itemQuantily;
 var cartItemCount;
 var cartItemUrl;
@@ -14,6 +21,16 @@ var cartItemDes;
 var cartItemPrices;
 var wishlistCount = $('.wishlist-count');
 var wishlistIcon = $('.wishlist-icon');
+var checkCurrentItem ="";
+var dataHolderSubUrl;
+var dataHolderUrl;
+var dataHolderName;
+var dataHolderDes;
+var dataHolderPrices;
+var dataHolderColor;
+let searchParams = new URLSearchParams(window.location.search);
+let productsType = searchParams.get('type');
+let productsID = searchParams.get('id');
 if (localStorage.getItem('cartItemCount') == null || localStorage.getItem('cartItemCount') == "0") {
     cartItemCount = 0;
     wishlistCount.hide();
@@ -55,38 +72,39 @@ if (localStorage.getItem('itemQuantily') == null) {
 } else {
     itemQuantily = localStorage.getItem('itemQuantily').split(';');
 }
-var checkCurrentItem ="";
+$(document).ready(function() {
+    var preload = $('#preload');
+    preload.addClass('active');
+    getData();
+    clearEle();
+    $('#detail-content').fadeOut(0);
+})
 window.onload = function() {
-    // Add quantily to item on load
-    setQuantily();
-    checkCurrentItem = `../assets/images/${productsType}/thumbnail/item-${productsID}.01.png`;
-    // Add main image url
-    mainImage.attr('src',`../assets/images/${productsType}/item-${productsID}.01.png`);
-    // Add sub image url
-    addSubImage(productsID);
-    // Hover on sub image
-    // var subImageItem = $('.detauil-sub-image');
-    // subImageItem.mouseenter(function() {
-    //     changeImage(mainImage,$(this).attr('src').replace("thumbnail/",""));
+    // // Add quantily to item on load
+    // setQuantily();
+    // checkCurrentItem = `../assets/images/${productsType}/thumbnail/item-${productsID}.01.png`;
+    // // Add main image url
+    // mainImage.attr('src',`../assets/images/${productsType}/item-${productsID}.01.png`);
+    // // Add sub image url
+    // addSubImage(productsID);
+    // // Get index of main item
+    // var itemNameIndex = parseInt(productsID.substr(1,1));
+    // // Add title
+    // $('#products-title-filter').html(dataHolderName[itemNameIndex-1]);
+    // // Add item name
+    // $('#detail-main-text .detail-main-text-title').html(dataHolderName[itemNameIndex-1]);
+    // // Add item sub title
+    // $('#detail-main-text-description').html(dataHolderDes[itemNameIndex-1].split('<br>')[0]);
+    // // Add item des
+    // $('.detail-main-description').each(function(index){
+    //     $(this).find('p').html(dataHolderDes[itemNameIndex-1].split('<br>')[index]);
     // })
-    // Get index of main item
-    var itemNameIndex = parseInt(productsID.substr(1,1));
-    // Add title
-    $('#products-title-filter').html(dataHolderName[itemNameIndex-1]);
-    // Add item name
-    $('#detail-main-text .detail-main-text-title').html(dataHolderName[itemNameIndex-1]);
-    // Add item sub title
-    $('#detail-main-text-description').html(dataHolderDes[itemNameIndex-1].split('<br>')[0]);
-    // Add item des
-    $('.detail-main-description').each(function(index){
-        $(this).find('p').html(dataHolderDes[itemNameIndex-1].split('<br>')[index]);
-    })
-    // Add item prices
-    $('#prices p').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])*1.5}`);
-    // Add color
-    addColor(productsID);
-    // Add item prices sales off
-    $('#prices h1').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])}`);
+    // // Add item prices
+    // $('#prices p').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])*1.5}`);
+    // // Add color
+    // addColor(productsID);
+    // // Add item prices sales off
+    // $('#prices h1').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])}`);
     // Add to cart icon
     var similarItem = $('.similar-item');
     var similarItemBtn = $('.similar-item .item-description .btn');
@@ -228,10 +246,6 @@ window.onload = function() {
 /*******************
 ******* NAV ********
 *******************/
-var hamberger = $('#hamberger');
-var navOverlay = $('#nav-overlay');
-var navBar = $('#nav-bar');
-var navMain = $('#nav');
 hamberger.click(() => {
     var x = window.matchMedia("(max-width: 768px)")
     if (x.matches) {
@@ -268,8 +282,6 @@ $('.go-top').click(function(){
 /*****************************
 ******* SMOOTH SCROLL ********
 ******************************/
-var navBarAnchor = $('.nav-bar-item a');
-var footerBarAnchor = $('#footer-menu ul li a');
 navBarAnchor.click(function(){
     if (hamberger.hasClass('active')) {
         hamberger.removeClass('active');
@@ -303,7 +315,6 @@ footerBarAnchor.click(function(){
 /***********************
 ******* SECTION ********
 ***********************/
-var sectionWrapper = $('section');
 window.addEventListener('scroll',() => {
     var offsetY = window.pageYOffset;
     var innerHeight = window.innerHeight;
@@ -322,10 +333,7 @@ window.addEventListener('scroll',() => {
 /********************************
 *********** Add Items ***********
 *********************************/
-var mainImage = $('#detail-main-image');
-var subImage = $('#detail-sub-image');
 
-var similarContainer = $('#similar-menu');
 var createEle = function(id,type,url,name,badge,prices) {
     var item = document.createElement('div');
     item.setAttribute('data-badge',badge);
@@ -353,15 +361,6 @@ var clearEle = function() {
 /********************************
 *********** AJAX JSON ***********
 *********************************/
-var dataHolderSubUrl;
-var dataHolderUrl;
-var dataHolderName;
-var dataHolderDes;
-var dataHolderPrices;
-var dataHolderColor;
-let searchParams = new URLSearchParams(window.location.search);
-let productsType = searchParams.get('type');
-let productsID = searchParams.get('id');
 var getData = function() {
     var url = "../json/data.json";
     $.ajax({
@@ -380,6 +379,33 @@ var getData = function() {
                             createEle(data[i].item.mainItem[j].substr(0,2),data[i].products,data[i].item.mainItem[j],data[i].item.name[j],data[i].item.badge[j],data[i].item.prices[j]);
                         }
                     }
+                }
+                if (i == (data.length - 1)) {
+                    // Add quantily to item on load
+                    setQuantily();
+                    checkCurrentItem = `../assets/images/${productsType}/thumbnail/item-${productsID}.01.png`;
+                    // Add main image url
+                    mainImage.attr('src',`../assets/images/${productsType}/item-${productsID}.01.png`);
+                    // Add sub image url
+                    addSubImage(productsID);
+                    // Get index of main item
+                    var itemNameIndex = parseInt(productsID.substr(1,1));
+                    // Add title
+                    $('#products-title-filter').html(dataHolderName[itemNameIndex-1]);
+                    // Add item name
+                    $('#detail-main-text .detail-main-text-title').html(dataHolderName[itemNameIndex-1]);
+                    // Add item sub title
+                    $('#detail-main-text-description').html(dataHolderDes[itemNameIndex-1].split('<br>')[0]);
+                    // Add item des
+                    $('.detail-main-description').each(function(index){
+                        $(this).find('p').html(dataHolderDes[itemNameIndex-1].split('<br>')[index]);
+                    })
+                    // Add item prices
+                    $('#prices p').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])*1.5}`);
+                    // Add color
+                    addColor(productsID);
+                    // Add item prices sales off
+                    $('#prices h1').html(`$${parseInt(dataHolderPrices[itemNameIndex-1])}`);
                 }
             }
         }
@@ -449,7 +475,6 @@ var addColor = function(id) {
 /**************************************
 *********** Wishlist Button ***********
 ***************************************/
-var wishListBtn = $('#check-out');
 
 wishListBtn.click(function() {
     if ($('#add-to-cart').hasClass('active') == false) {
@@ -516,7 +541,6 @@ wishListBtn.click(function() {
 /*****************************************
 *********** Add to cart Button ***********
 ******************************************/
-var addToCart = $('.btn#add-to-cart');
 
 addToCart.click((event) => {
     var element = $(event.target).parent().parent();
@@ -609,9 +633,6 @@ addToCart.click((event) => {
 *********** Item quantily ***********
 *************************************/
 
-var inputNumber = $('.item-count');
-var itemDecrease = $('.item-count-btn.decrease');
-var itemIncrease = $('.item-count-btn.increase');
 
 inputNumber.keypress((evt) => {
     if ($('#add-to-cart').hasClass('active')) {

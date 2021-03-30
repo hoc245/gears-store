@@ -1,8 +1,3 @@
-$(document).ready(function() {
-    var preload = $('#preload');
-    preload.addClass('active');
-})
-// Check localStorage
 var itemQuantily;
 var cartItemCount;
 var cartItemUrl;
@@ -11,6 +6,16 @@ var cartItemDes;
 var cartItemPrices;
 var wishlistCount = $('.wishlist-count');
 var wishlistIcon = $('.wishlist-icon');
+var hamberger = $('#hamberger');
+var navOverlay = $('#nav-overlay');
+var navBar = $('#nav-bar');
+var navMain = $('#nav');
+var footerBarAnchor = $('#footer-menu ul li a');
+var sectionWrapper = $('section');
+var  cartList = $('#cart-list');
+var totalPrices = $('#total-prices');
+// Check localStorage
+
 if (localStorage.getItem('cartItemCount') == null || localStorage.getItem('cartItemCount') == "0") {
     cartItemCount = 0;
     wishlistCount.hide();
@@ -52,6 +57,11 @@ if (localStorage.getItem('itemQuantily') == null) {
 } else {
     itemQuantily = localStorage.getItem('itemQuantily').split(';');
 }
+$(document).ready(function() {
+    var preload = $('#preload');
+    preload.addClass('active');
+})
+
 window.onload = function() {
     addCartItem();
     var preload = $('#preload');
@@ -60,10 +70,7 @@ window.onload = function() {
 /*******************
 ******* NAV ********
 *******************/
-var hamberger = $('#hamberger');
-var navOverlay = $('#nav-overlay');
-var navBar = $('#nav-bar');
-var navMain = $('#nav');
+
 hamberger.click(() => {
     var x = window.matchMedia("(max-width: 768px)")
     if (x.matches) {
@@ -100,7 +107,7 @@ $('.go-top').click(function(){
 /*****************************
 ******* SMOOTH SCROLL ********
 ******************************/
-var footerBarAnchor = $('#footer-menu ul li a');
+
 
 footerBarAnchor.click(function(){
     if(this.hash !== "") {
@@ -116,7 +123,7 @@ footerBarAnchor.click(function(){
 /***********************
 ******* SECTION ********
 ***********************/
-var sectionWrapper = $('section');
+
 window.addEventListener('scroll',() => {
     var offsetY = window.pageYOffset;
     var innerHeight = window.innerHeight;
@@ -135,8 +142,7 @@ window.addEventListener('scroll',() => {
 /************************
 ******* Add Item ********
 ************************/
-var  cartList = $('#cart-list');
-var totalPrices = $('#total-prices');
+
 
 var addCartItem = function() {
     var urlArray = cartItemUrl;

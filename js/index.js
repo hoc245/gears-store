@@ -1,3 +1,15 @@
+var hamberger = $('#hamberger');
+var navOverlay = $('#nav-overlay');
+var navBar = $('#nav-bar');
+var navMain = $('#nav');
+var navBarAnchor = $('.nav-bar-item a');
+var footerBarAnchor = $('#footer-menu ul li a');
+var sectionWrapper = $('section');
+var container = $('.3d-animation');
+var square = $('.square');
+var currentImage = $('#new-arrival-image img');
+var productsItem = $('.products-item');
+
 $(document).ready(function() {
     var preload = $('#preload');
     preload.addClass('active');
@@ -9,10 +21,6 @@ window.onload = function() {
 /*******************
 ******* NAV ********
 *******************/
-var hamberger = $('#hamberger');
-var navOverlay = $('#nav-overlay');
-var navBar = $('#nav-bar');
-var navMain = $('#nav');
 hamberger.click(() => {
     var x = window.matchMedia("(max-width: 768px)")
     if (x.matches) {
@@ -49,8 +57,6 @@ $('.go-top').click(function(){
 /*****************************
 ******* SMOOTH SCROLL ********
 ******************************/
-var navBarAnchor = $('.nav-bar-item a');
-var footerBarAnchor = $('#footer-menu ul li a');
 navBarAnchor.click(function(){
     if (hamberger.hasClass('active')) {
         hamberger.removeClass('active');
@@ -84,7 +90,6 @@ footerBarAnchor.click(function(){
 /***********************
 ******* SECTION ********
 ***********************/
-var sectionWrapper = $('section');
 window.addEventListener('scroll',() => {
     var offsetY = window.pageYOffset;
     var innerHeight = window.innerHeight;
@@ -102,8 +107,6 @@ window.addEventListener('scroll',() => {
 /*****************************
 ******** 3D ANIMATION ********
 ******************************/
-var container = $('.3d-animation');
-var square = $('.square');
 
 container.mousemove(function(e) {
     let innerWidth = $(this).width();
@@ -131,7 +134,6 @@ container.mouseleave(function(){
 /************************************
 ******** NEW ARRIVAL SECTION ********
 *************************************/
-var currentImage = $('#new-arrival-image img');
 var changeImage = function(src) {
     var url = [];
     for (var i = 0 ; i < src.length ; i++) {
@@ -155,7 +157,6 @@ var changeImage = function(src) {
 /*********************************
 ******** PRODUCTS SECTION ********
 **********************************/
-var productsItem = $('.products-item');
 
 var setThemeProducts = function() {
     var x = window.matchMedia("(max-width: 720px)")
