@@ -36,7 +36,7 @@
                     <span class="header-icon"><img src="./assets/icon/Wishlist.svg" alt="Wishlist"></span><a href="order/wishlist.html">Wishlist</a>
                 </div>
                 <div class="header-item">
-                    <span class="header-icon"><img src="./assets/icon/Log in.svg" alt="Login"></span><a href="">Log in</a>
+                    <span class="header-icon"><img src="./assets/icon/Log in.svg" alt="Login"></span><a id="log-in">Log in</a>
                 </div>
             </div>
         </header>
@@ -68,6 +68,13 @@
         </div>
     </nav>
     <main>
+        <div class="close-iframe" style="display:none">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="overlay" style="display:none;"> 
+        </div>
+        <iframe class="frame" src="form/login.html" style="display:none;"></iframe>
         <section id="new-arrival" class="active">
             <span id="hero-pattern"></span>
             <div class="section-wrapper">

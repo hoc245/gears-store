@@ -1045,6 +1045,59 @@ footer #footer-wrapper #right-footer p {
   }
 }
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(231, 231, 231, 0.884);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  z-index: 99;
+}
+
+.close-iframe {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.close-iframe span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray);
+  top: 9px;
+  left: 0;
+}
+
+.close-iframe span:nth-of-type(1) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.close-iframe span:nth-of-type(2) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+iframe {
+  position: fixed;
+  width: calc(100% - 40px);
+  max-width: 1000px;
+  height: 100vh;
+  max-height: 430px;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 #nav {
   background-color: var(--white);
 }

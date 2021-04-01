@@ -9,6 +9,7 @@ var container = $('.3d-animation');
 var square = $('.square');
 var currentImage = $('#new-arrival-image img');
 var productsItem = $('.products-item');
+var loginIcon = $('header-item');
 
 $(document).ready(function() {
     var preload = $('#preload');
@@ -171,5 +172,42 @@ var setThemeProducts = function() {
 setThemeProducts();
 
 /********************************
-*********** AJAX JSON ***********
+********** LOGIN FORM ***********
 *********************************/
+loginIcon.each(function() {
+    if($(this).find(a).html() == "Log in") {
+        $(this).click(function() {
+            $('iframe').show(500);
+            $(document).mouseup(function(e) {
+                var container = iframe.contentWindow.document.getElementsByTagName("H1");
+
+                if (!container.is(e.target) && container.has(e.target).length === 0) 
+                {
+                    container.hide();
+                }
+            });
+        })
+    }
+})
+
+var closeForm = $('.close-iframe');
+var overlayForm = $('.overlay');
+var iframeForm = $('iframe');
+closeForm.click(() => {
+    iframeForm.attr('id','');
+    iframeForm.fadeOut(500);
+    overlayForm.fadeOut(500);
+    $('html,body').attr('style','');
+    closeForm.fadeOut(300);
+})
+var login = $('#log-in');
+login.click(() => {
+    iframeForm.attr('id','frame');
+    document.getElementById('frame').contentDocument.location.reload(true);
+    iframeForm.fadeIn(500);
+    overlayForm.fadeIn(500);
+    $('html,body').attr('style','overflow:hidden');
+    var iframePos = iframeForm.offset();
+    closeForm.attr('style',`top: ${iframePos.top + 20}px; right: ${iframePos.left + 20}px`);
+    closeForm.fadeIn(300);
+})
