@@ -85,7 +85,9 @@
         }
     }
     &.scroll {
-        background-color: var(--white);
+        background-color: rgba(255,255,255,0.87);
+        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        backdrop-filter: blur(20px) saturate(180%);
         #nav-container {
             #nav-logo {
                 width: 20px;
